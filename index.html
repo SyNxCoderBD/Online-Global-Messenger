@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "firebase/app": "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js",
+            "firebase/auth": "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js",
+            "firebase/database": "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div id="auth-container">
+            <div id="login-section">
+                <div id="auth-forms">
+                    <div id="login-form">
+                        <h2>Login</h2>
+                        <input type="email" id="login-email" placeholder="Email">
+                        <input type="password" id="login-password" placeholder="Password">
+                        <button id="login-btn">Login</button>
+                    </div>
+                    <div id="signup-form">
+                        <h2>Sign Up</h2>
+                        <input type="text" id="signup-username" placeholder="Username">
+                        <input type="email" id="signup-email" placeholder="Email">
+                        <input type="password" id="signup-password" placeholder="Password">
+                        <button id="signup-btn">Sign Up</button>
+                    </div>
+                </div>
+                <div id="auth-toggle">
+                    <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+                    <p style="display:none;">Already have an account? <a href="#" id="show-login">Login</a></p>
+                </div>
+            </div>
+            <div id="user-profile" style="display:none;">
+                <span id="user-name"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </div>
+        
+        <div id="chat-container" style="display:none;">
+            <div id="messages"></div>
+            <div id="message-input-container">
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="app.js"></script>
+</body>
+</html>

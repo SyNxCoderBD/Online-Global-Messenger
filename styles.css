@@ -1,0 +1,295 @@
+:root {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: #e94560;
+    --text-secondary: #0f3460;
+    --accent-color: #6a5acd;
+    --glow-color: rgba(233, 69, 96, 0.7);
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg-primary);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+#auth-container {
+    text-align: center;
+    margin-bottom: 20px;
+    perspective: 1000px;
+}
+
+#auth-forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+#login-form, #signup-form {
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+#login-form:hover, 
+#signup-form:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(233, 69, 96, 0.2);
+}
+
+#login-form input, 
+#signup-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--text-secondary);
+    border-radius: 6px;
+    background-color: rgba(22, 33, 62, 0.8);
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+#login-form input:focus, 
+#signup-form input:focus {
+    outline: none;
+    border-color: var(--text-primary);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+#login-form button, 
+#signup-form button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, var(--text-primary), var(--accent-color));
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+#login-form button:hover, 
+#signup-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(233, 69, 96, 0.4);
+}
+
+#signup-form {
+    display: none;
+}
+
+#chat-container {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+#messages {
+    height: 400px;
+    overflow-y: scroll;
+    padding: 15px;
+    background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+}
+
+.message {
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.message.sent {
+    background: linear-gradient(135deg, #6a5acd, var(--text-primary));
+    text-align: right;
+    animation: float-in-right 0.5s ease;
+}
+
+.message.received {
+    background: linear-gradient(135deg, var(--text-secondary), #16213e);
+    animation: float-in-left 0.5s ease;
+}
+
+#message-input-container {
+    display: flex;
+    padding: 15px;
+    background-color: var(--bg-primary);
+}
+
+#message-input {
+    flex-grow: 1;
+    margin-right: 10px;
+    background-color: rgba(22, 33, 62, 0.8);
+    color: white;
+    border: 1px solid var(--text-secondary);
+    border-radius: 6px;
+    padding: 10px;
+}
+
+#send-btn {
+    background: linear-gradient(45deg, var(--text-primary), var(--accent-color), #6a5acd);
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#send-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(233, 69, 96, 0.4);
+}
+
+#auth-toggle a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#auth-toggle a:hover {
+    color: var(--accent-color);
+}
+
+#user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--text-primary);
+    transition: transform 0.3s ease;
+}
+
+#user-avatar:hover {
+    transform: rotate(360deg);
+}
+
+@keyframes float-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Add mobile responsiveness */
+@media screen and (max-width: 600px) {
+    body {
+        max-width: 100%;
+        padding: 10px;
+        margin: 0;
+    }
+
+    #auth-container, 
+    #login-form, 
+    #signup-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #login-form, 
+    #signup-form {
+        padding: 15px;
+    }
+
+    #messages {
+        height: 300px; /* Slightly reduced height for mobile */
+    }
+
+    #message-input-container {
+        flex-direction: column;
+    }
+
+    #message-input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    #send-btn {
+        width: 100%;
+    }
+
+    #user-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #logout-btn {
+        margin-top: 10px;
+    }
+}
+
+/* Ensure touch targets are large enough */
+@media (max-width: 600px) {
+    #login-form input, 
+    #signup-form input,
+    #message-input,
+    #login-form button, 
+    #signup-form button, 
+    #send-btn,
+    #logout-btn {
+        min-height: 44px; /* Recommended touch target size */
+        font-size: 16px; /* Prevent automatic zoom on iOS */
+    }
+}
